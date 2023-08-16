@@ -14,8 +14,7 @@ class Direction(Enum):
     UP = 3
     DOWN = 4
 
-Point = namedtuple("Point",'x,y')
-
+Point = namedtuple('Point','x,y')
 
 # rgb colors
 WHITE = (255, 255, 255)
@@ -25,7 +24,7 @@ BLUE2 = (0, 100, 255)
 BLACK = (0,0,0)
 
 BLOCK_SIZE = 20
-SPEED = 10
+SPEED = 40
 
 class SnakeGameAI:
 
@@ -96,7 +95,7 @@ class SnakeGameAI:
     def is_collision(self, pt=None):
         if pt is None:
             pt = self.head
-        if pt.x > self.w - BLOCK_SIZE or pt.x < 0 or pt.y > pt - BLOCK_SIZE or pt.y < 0:
+        if pt.x > self.w - BLOCK_SIZE or pt.x < 0 or pt.y > self.h - BLOCK_SIZE or pt.y < 0:
             return True
         
         if pt in self.snake[1:]:
